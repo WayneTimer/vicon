@@ -1,6 +1,7 @@
 <launch>
 
   <arg name="model" />
+  <arg name="odom_pub" />
 
   <node pkg="vicon_odom"
     type="vicon_odom"
@@ -10,7 +11,7 @@
     <param name="max_accel" value="5.0"/>
 
     <remap from="~vicon" to="/vicon/$(arg model)"/>
-    <remap from="~odom" to="/$(arg model)/odom"/>
+    <remap from="~odom" to="$(arg odom_pub)"/>
   </node>
 
 </launch>
